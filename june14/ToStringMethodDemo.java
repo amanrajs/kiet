@@ -3,8 +3,8 @@ package june14;
 public class ToStringMethodDemo {
 	public static void main(String[] args) {
 		
-		Employee emp = new Employee(101, "Vishal", 2000.00);
+		//Employee emp = new Employee(101, "Vishal", 2000.00);
 		
-		System.out.println(emp);
+		//System.out.println(emp);
 	}
 }

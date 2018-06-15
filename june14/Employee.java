@@ -1,6 +1,8 @@
 package june14;
 
-public class Employee {
+import java.util.Date;
+
+public class Employee extends Person {
 	
 	private int empId;
 	private String eName;
@@ -8,10 +10,11 @@ public class Employee {
 		
 	public Employee() {
 		super();
+		System.out.println("Employee object Created - Default Constructor");
 	}
 
-	public Employee(int empId, String eName, double salary) {
-		super();
+	public Employee(int age, Date dob, int empId, String eName, double salary) {
+		super(age, dob);
 		this.empId = empId;
 		this.eName = eName;
 		this.salary = salary;
@@ -46,7 +49,7 @@ public class Employee {
 		int id = Integer.parseInt(s[0]);
 		String en = s[1];
 		double sal = Double.parseDouble(s[2]);
-		return new Employee(id, en, sal);
+		return new Employee();
 	}
 
 	@Override
