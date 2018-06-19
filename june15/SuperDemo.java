@@ -1,4 +1,4 @@
-package june14;
+package com.company;
 
 /**
  * Created by VISHAL on 14-06-2018.

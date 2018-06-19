@@ -1,4 +1,4 @@
-package june14;
+package com.company;
 
 public class ToStringMethodDemo {
 	public static void main(String[] args) {

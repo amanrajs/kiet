@@ -1,4 +1,4 @@
-package june14;
+package com.company;
 
 import java.util.Date;
 
