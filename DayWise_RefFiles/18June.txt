@@ -1,0 +1,230 @@
+Wrapper classes
+-----------------------------
+	- in java, there are eight primives types 
+	- for each of these types there are corresponding Reference type, 		which are called as wrapper classes
+	- java.lang package
+	- all the wrapper classes are immutable
+
+	- whenever primitive types needs to be treated as objects
+	- wrapper classes provides conversion methods
+		
+		Interger.parstInt("12")
+
+	primitive types		reference types
+	byte			Byte
+	short			Short
+	int			Integer
+	long			Long
+	float			Float
+	double			Double
+	char			Character
+	boolean			Boolean
+
+
+
+Boxing and Unboxing
+-------------------------------
+
+	=> Boxing
+		- conversion of primitive type to its corresponding ref. 				type is called is boxing
+		- converting an int to an Integer type
+		- autoboxing is automatic convertion from primitive to Ref 			types
+		- autoboxing will be performed 
+			a. when a primitive is assigned to its 							corresponding wrapper class or Object type
+			b. a primitive is passed as an argument to a 				method that expects an Object of the 						corresponding class
+
+
+		int a = 10;		Integer
+
+		Object obj = a;		//boxing / autoboxing
+		Object obj = new Integer(a)
+		
+		Integer intObj = a;	//autoboxing
+			Integer intObj = new Integer(a);
+
+
+		double dbl = 30.232;
+		Object obj = dbl;	//autoboxing
+
+
+	
+		void add(Object obj){
+
+		}	
+
+		Object class
+		---------------
+		boolean equals(Object obj){
+
+		}
+
+		Integer class
+		-------------
+		boolean equals(Object obj){
+
+		}
+
+
+		Integer obj;
+		obj.equals(a)
+
+		add(10);
+
+	==>Unboxing
+		-> conversion of reference type to its corresponding 					primitive type
+
+
+Collection Framework API
+----------------------------------
+
+	- java.util package
+
+	- provides predefined data structures 
+	- each class in the collection framework represents/uses specific 			data structures which allows dynamic allocation
+	- it provides dynamically allocated data structures i.e. 				ArrayList, LinkedList, HashSet, HashMap etc.
+	- arrays doesn;t support dynamic allocation
+	- Collection holds a set of Objects in specific manner
+	- collections can not store primitives
+		- primitives types are converted to their corresponding 			wrapper classes before storing in collection
+
+
+Collection Framework API
+--------------------------------
+	     Iterable<T> (i) <--- iterator()
+		|
+	   Collection<T> (i)				Map<K,V> (i)
+		|					  |
+    -------------------------------------		  |
+    |		       |		|		HashMap<K,V>
+  List<T> add()	      Set<T> 	     Queue<T>		LinkedHashMap<K,V>
+   (i)	       	       (i) 	        (i)		TreeMap<K,V>
+    |			|		|
+    |			|		|
+ArrayList<T> 	    HashSet<T>		|
+LinkedList<T> 	    LinkedHashSet<T>	|
+Vector<T> 	    TreeSet<T>		|
+Stack<T> 			 ----------------------
+				 |		    |	
+				Deque (i)	BlockingQueue (i)
+			  	  |
+				BlockingDeque (i)
+
+
+
+Collection Interface
+----------------------------
+	- super interface for all the collection types. i.e. List, Set and 		Queue
+
+	- defines the common methods/behaviors for all the collection 				class
+
+List<E> interface
+-------------------------
+	- it models an index based collection of objects
+	- allows duplicate values 
+	- List implemented classes are ArrayList, LinkedList, Vector and 			Stack
+
+Set<E> interface
+--------------------
+	- it models a collection of objects, which doesn;t allow duplicate 		elements
+	- Set implementation classes are HashSet, LinkedHashSet and 				TreeSet
+
+Queue<T> interface
+----------------------
+	- Models a queue such as First-in-First-out
+	- Queue implementation classes are PriorityQueue, ArrayDeque, 				ArrayBlockingQueue etc.
+
+Map<K,V> interface
+--------------------------	
+	- it models a collection of objects in the form of key-value pairs
+	- each key is unique
+	- cannot allow duplicate keys
+
+Methods of Collection Interface
+-----------------------------------
+
+	boolean add(Object obj)
+	boolean addAll(Collection c)
+	boolean remove(Object obj)
+	boolean removeAll(Collection c)
+	boolean retainAll(Collection c)
+	int size()
+	Iterator iterator()
+
+ 
+What is a List?
+-------------------
+	- a list is a collection of objects
+	- a List is kind of Collection
+	- it maintains group of objects in the form of index based
+	- list stores the elements by insertion order
+	- allows to store duplicate and null
+
+Implementation classes of List
+------------------------------------
+
+			Collection
+			    |
+			   List
+			    |
+			AbstractList (abstract)
+			    |
+		-----------------------------
+		|		|	    |	
+	      ArrayList	    LinkedList	  Vector	
+					    |
+					  Stack
+
+1. ArrayList<T>
+	-> ArrayList internally uses "Resizable Array" Data Structure
+	-> initial capacity is 10
+	-> ArrayList performance is slow due to lot of shifting when 				adding/removing elements
+
+		ArrayList list  = new ArrayList();
+		List list = new ArrayList();
+
+		ArrayLIst
+
+		list.add(10);
+		list.add("Welcome");
+
+
+2. LinkedList
+----------------------
+	-> it internally uses "Doubly linked list" data structure
+	-> performance is better than ArrayList
+
+		LinkedList list = new LinkedList();
+		List list = new LinkedList()
+
+		list.add(10);
+		list.add("welcome");
+
+3. Vector
+----------------
+	- it is similar to ArrayList
+	- uses "Resizable Array" Data Structure
+
+	- Vector is synchronized
+
+4. Stack
+--------------
+	- it is similar to ArrayList
+	- uses "Resizable Array" Data Structure
+	- it is also synchronized
+	- it has LIFO approach
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

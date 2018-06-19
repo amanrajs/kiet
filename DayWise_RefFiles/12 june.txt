@@ -1,0 +1,298 @@
+Array
+----------------
+	- collection/group of elements of same type
+	- in java, arrays are objects
+	- the elements are accessed using index numbers, which 					starts from 0
+	- we can have arrays of primitives as well as array of objects
+	- the array of primitive stores the primitive values
+	- the array of objects stores references to objects
+	- in java, arrays are fixed length;
+
+	
+
+1. declare array variable
+	
+	<datatype>[]  arrname;
+
+	int[] nums;
+
+	int nums[];
+	int  []nums;
+	
+2. create an array
+
+	arrname = new <datatype>[size];
+
+	nums = new int[5];
+
+3. initialize values to array elements
+
+	nums[0] = 10
+	nums[1] = 20
+	..	
+	..
+
+
+int[] nums = new int[5];
+
+int[] nums = new int[] {12,43,45,32,54};
+
+int nums = {12,43,2,4,5};
+
+.length property
+-------------------
+	- returns the length of array
+
+Passing array to method
+------------------------------
+
+	int nums = {12,43,2,4,5};
+
+	showArray(nums);
+
+	void showArray(int[] x){
+		
+	}
+
+the java.util.Arrays class provides array manipulation methods
+
+Arrays.sort(arr) 
+------------------
+	- sort the given array according to its natual ordering 
+
+
+	int[] nums = {12,5,34,65,67}
+	Arrays.sort(nums);
+
+	String[] names = {"manoj","mahesh","amit","rajesh","dipti"};
+	Arrays.sort(names);
+	
+	class Student{
+		//..
+		//..
+	}
+
+	Student[] studArr = new Student[5];
+		//.
+		//.
+	Arrays.sort(studArr)
+		
+Arrays.reverse(arr)
+
+	- reverses given array
+
+
+Arrays.binarySearch(arr, searchValue)
+	- Searches for a specific value in an array. 
+	- Returns the index of the element if found, or -1 if not found. 	***Note that the array must be sorted first.
+
+
+Arrays.copyOf(originalArr, int lengh)
+	- copies a portion of the specified array to a new one.
+
+	int newArr = Arrays.copyOf(arr, 3);
+ 
+Arrays.copyOfRange(originalAr, from, to)
+
+
+Arrays.asList(arr)
+Arrays.asList(12,2,34,54,65)
+
+	- returns a Collection (List)
+
+Arrays.equals(arr1, arr2)
+
+	- compare two arrays and returns true if both the arrays are same
+
+Arrays.fill(arr, value)
+	
+	- fills the given value into array
+
+
+Array of objects
+-----------------------
+
+	String[] str = new String[5];
+	
+	Date[] dob = new Date[5]
+
+	POJO - Plain Old Java Object - Model class - Bean class
+		- define fields
+		- provide constructors
+		- provide getter/setter methods for each property/field
+
+
+String, StringBuilder, StringBuffer, StringTokenizer
+---------------------------------------------------------
+
+
+==>String
+-------------
+	- group of characters / sequence of characters
+	- java provides String class, and methods to manipulate strings
+	- in java, strings are objects
+	- String objects are immutable / not modifiable
+
+	Creating String Object
+	--------------------------
+	1. String s1 = "Welcome"; 
+
+		s1 = "helloworld"
+
+	2. String s1 = new String("Welcome");
+
+	3. char[] chArr = {'K','I','E','T'}
+	   String s1 = new String(chArr);
+		
+==> String class Methods
+---------------------------------
+
+	1. int length()
+
+		- returns length of string
+
+	2. String concat(String s)
+
+		- returns new String by concatenating this string 					with given string
+
+		String fname = "Vishal"
+		String lname = "shah"
+
+		String fullName = fname.concat(lname);
+
+	3. int indexOf(String s)	or int indexOf(char ch)
+		- returns the index of given char/string if found, 
+			else -1
+
+		String s1 = "Welcome to java"
+		int index = s1.indexOf('e');
+
+	4. int lastIndexOf(String s)
+
+
+	5. char charAt(int index)
+		- returns a char of the given index
+		
+	6. int compareTo(String s)
+
+		- compares this string with given string and returns 			compare value
+
+		0	: both string are equals
+	
+		> 0	: this string is greater than given string
+
+		< 0 	: this string is less than given string
+
+	7. boolean equals(String s)
+		- compares this string with given string 
+		- returns true/false
+
+	8. boolean equalsIgnoreCase(String s)
+		- compares this string with given string (case 			insensitive)
+
+	9. boolean startsWith(String s)
+		- check whether this string has prefix as given string
+		
+
+		String mob = "3733772299"
+		
+		if(mob.length()==10){
+
+		    if(mob.startsWith("7") || mob.startsWith("8") || ...){
+			   //..
+			}
+		}
+	
+	10. String substring(from, to)
+
+		String str = "welcome"
+		String result = str.substring(2, 4)
+
+	11. String replace(oldChar, newChar)
+			
+	12. String trim()
+		- remove leading and trailing spaces from the string
+			and returns a new string
+
+
+
+==>StringBuilder
+
+	- used to create mutable strings
+
+	insert(int index, String newstr)
+
+	append(String newstr)
+
+	delete(from, to)
+
+	replace(int from, int to, String newstr)
+
+	reverse()
+
+==>StringBuffer
+
+	- similar to StringBuilder
+	- StringBuffer class is synchronized
+
+
+==>StringTokenizer
+	- used to break a string into tokens based on some delimiters
+	- java.util package
+	- StringTokenizer implements Enumeration interface
+		- boolean hasMoreTokens()
+		- String nextToken()
+
+1997 - javascript was submitted to ECMA to standarize 
+	
+JavaScript 1.5 / EcmaScript / ES5
+---------------------------------
+	- scripting language used for client side programming
+	- javascript object based / Prototypal inheritance
+
+	- DOM Manipulation
+	- Event Handling
+	- Business Logic
+	- Form Validation
+
+
+ES6 - ECMAScript 2015 - JavaScript 2.0
+---------------------------------------------
+	- most advanced version of javascript 
+	- Classes and objects
+	- let / const keyword
+	- rest operator
+	- rest parameter
+	- Arrow Function - lamda expressions
+	- Module
+	- Generators
+	- map operator
+
+==> TypeScript
+------------------------
+	- superset of ES6
+	- typescript code cannot executed directly in the browser
+	- typescript code is transpiled into javascript
+	- type safe
+	- Decorator
+	- Generics
+	...
+	....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

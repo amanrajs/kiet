@@ -1,0 +1,292 @@
+JVM - Java Virtual Machine
+	- responsible to execute byte code
+
+JRE - Java Runtime Environment 
+	- JVM + libraries
+
+JDK - Java Development Kit
+	- JRE + development tools i.e. javac, debugger, jar
+
+
+public class Helloworld{
+
+	public static void main(String[] args){
+
+	}
+}
+
+
+javac Helloworld.java		<-- java program will be compiled 
+					Helloworld.class
+
+java Helloworld			<-- execute the Helloworld
+
+
+
+
+Variables
+-----------------
+
+	datatype	varname;
+	
+	int a;
+	String s;
+
+a. Local Variable 
+	- declared inside a method/constructor/block
+	- memory is allocated for local variable when the method is 		invoked and destroyed when method finishes
+	- local variables must be initialized before 1st use
+		- no default values for local variable
+	- cannot use access modifiers 
+	- cannot be static 
+
+b. Instance Variable
+	- variables that are declared inside a class, but outsite 		method/constructor/block
+	- memory for instance variables will be allocated when the 		object is created using 'new' keyword
+	- instance variables have default values
+		i.e. numbers	: 0
+		     boolean	: false
+		     ref. types	: null
+	- we can use access specifiers i.e. public, private, protected
+
+c. Static Variable / class variable
+	- variables are declared inside a class, but outside 		method/constructor/block
+	- variables are declared using 'static' keyword
+	- memory is allocated at the time of beginning of program
+	- only one copy of static variable is allocated per class 			regardless of any number of objects	
+	- static variables are accessed using class name
+
+		ClassName.staticvarname;
+
+	- default values are similar to instance variable
+	- can use access specifiers
+
+
+Data types
+----------------
+
+	1. primitive types
+		- hold values
+
+		byte
+
+		short
+
+		int
+
+		long
+
+		float
+
+		double
+
+		char
+
+		boolean
+
+	2. reference types
+		- hold reference/memory address of object
+		- all class, interface, array variables are ref. types
+	
+
+==> Final Keyword
+--------------------------------
+	- final keyword prevents modification
+
+	1. final variable 
+		- cannot reassign the value
+		
+		 final int MAX = 10;
+
+	2. final method
+		- final methods cannot be overridden in sub classes
+
+		final void show(){
+
+		}
+
+	3. final class 
+
+		- final class cannot be sub classed
+		
+
+
+	final class Demo{
+
+		final int MAX;
+		final static int COUNT;
+
+
+		final void show(){
+
+		}
+
+	}
+
+==> Static keyword
+---------------------
+
+	1. static variables
+		- only one copy of static variable is allocated per class
+		- store common values
+
+	2. static methods
+		- static methods can be accessed directly using class name
+		- static methods used to manipulate static variables
+		- cannot access non-static variables inside static methods
+
+		class Product{
+
+			int pid;
+			String pname;
+			...
+
+			static double gstRate;
+
+			static void setGstRate(double rate){
+				this.gstRate = rate;
+			}
+
+		}
+
+	3. static class
+	----------------------
+
+		class Demo{
+
+			//inner class
+			class A{
+				//...
+			}
+
+			//nested class
+			static class B{
+
+			}
+
+		}
+
+Wrapper Class
+------------------
+	- for each primitive type there is a corresponding reference type, which is 		called wrapper class
+
+	- Whenever we want to work with only Objects - Referece type 
+		(where primitives are not allowed)
+
+	- i.e. in Collection Framework, all the Collection classes don;t allow 			primitives to be stored
+
+	- Wrapper classes provide methods for conversions
+
+			Integer.parseInt(str);
+
+Primitive Types				Wrapper Classes
+
+	byte				Byte
+	short				Short
+	int				Integer
+	long				Long
+	float				Float
+	double				Double
+	char				Character
+	boolean				Boolean
+
+
+Control Flow Statements
+-----------------------------
+1. Decision making Statements 
+
+	- if statement
+	- if-else statement
+	- if-else if-else statement
+	- switch statement
+
+		int max = a > b ? a : b;
+
+		if(a>b){
+			max = a;
+		}else{
+			max = b;
+		}
+
+2. Looping Statements 
+
+	- while loop 
+	- do while
+	- for loop
+
+	- Enhanced for loop - foreach loop
+		- used to iterate an array or collection
+
+3. Jumping Statements
+
+	- break
+	- continue
+
+=> Array
+----------------
+
+	- collection / group of elements of same type
+	- in java, Arrays are objects
+
+	- we can have array of primitives as well as objects
+	- the java.util.Arrays class provides methods to manipulate array
+
+	- create an array
+
+		a. Declare array variable 
+
+			<DataType>[]  arrName;
+
+			int[] nums;
+
+		b. Create array 
+
+			arrName = new <datatype>[size];
+
+			nums = new int[5];
+
+		c. initialize values to array elements
+
+			nums[0] = 10;
+			nums[1] = 20
+			
+
+
+		int[] arr1 = {1,2,4,6,4};
+
+		int[] arr2 = {7,8,9,5,90};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

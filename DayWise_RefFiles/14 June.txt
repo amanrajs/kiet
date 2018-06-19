@@ -1,0 +1,286 @@
+		
+				Object class
+				  |
+   -----------------------------------------------------------------
+   |		   |		|		   |		  |
+Employee 	Scanner	  InputStreamReader	ArrayList	Frame
+Product
+Customer
+BankAccount
+
+ - Object class is the supermost class of all java classes
+ - implicitely every class in java is subclass to Object class
+
+Object class methods
+-------------------------
+
+	- String toString()
+	- boolean equals(Object obj)
+	- int hashCode()
+	- void wait()
+	- void notify()
+	- void notifyAll()
+
+String toString()
+-----------------------
+	- Returns a string representation of the object.
+	- is called automatically, when we use the ref variable in any 				expression
+	- we can override the 'toString()' in our class
+		- and return the string representation of our object as
+			per the requirement
+
+Inheritance
+-----------------------
+	- Creating a new class that inherits from another class
+	- in java, we can inherit a class using 'extends' keyword
+	- in java, a class can extend to only one class
+	- private members are not accessible in subclass
+	- inheritance create IS-A relationship 
+
+	-> Reusability
+	-> Maintainability
+	-> Extensitibility
+
+	class BaseClass extends Superclass{
+
+	}
+
+
+			Cup
+			 |
+		------------------------
+		|			|
+	    CoffeeCup			TeaCup
+		|
+	 ---------------
+	 |		|
+	CoffeeMug	ExpressMug
+
+CoffeeCup is-a cup
+CoffeeMug is-a CoffeeCup
+CoffeeMug is-a Cup
+
+	package p1;
+	class Super{
+
+		public int x;
+		private int y;
+		protected int z;
+
+		int a;		//default member
+	}
+
+	package p2;
+	class SomeClass{
+		psvm(...){
+			Super s = new Super();
+			s.a;	//error
+		}
+	}	
+
+	package p3;
+	class Sub extends Super{
+		public Sub(){
+			sop(a);
+		}
+	}
+
+
+
+	- public members are accessible anywhere outside the class
+	- private members are accessible only within the class
+	- protected members are accessible only in the sub class
+
+	- default member is accessible only to the sub class and other 				classes inside the same package
+
+HAS-A Relationship / Association
+-------------------------------------
+
+	- when a class has entity ref of another class, it is called as 			association/Aggregation, which implements Has-a 				relationship
+
+
+** => super class ref variable can reference the Child object
+
+	class Shape{
+
+	}
+
+	class Rectangle extends Shape{
+
+	}
+
+	
+	Shape shape = new Rectangle();
+
+==> Casting Objects
+--------------------------
+
+		Object
+		  |
+		Bike
+		  |
+		MountainBike
+
+
+
+	class Bike{
+
+	}
+
+	class MountainBike extends Bike{
+
+	}
+
+	MountainBike myBike = new MountainBike();
+
+	Object obj = new MountainBike()
+
+	Bike bike = new MountainBike()
+
+
+
+	Object obj = new MountainBike()
+
+	if(obj instanceof MountainBike){
+		MountainBike myBike = (MountainBike)obj;
+	}
+
+
+Polymorphism - Dynamic Binding
+-----------------------------------
+	- many forms 
+	- a type can point to different objects at different times 
+		- based on the object it refers, it calls appropriate 			method
+	- in java, polymorphism is implemented by overriding superclass 		method in sub class
+
+
+
+
+
+class Animal{
+	public void move(){
+		Sysout.out.println("\n\t Animal is moving");
+	}
+}
+
+class Fish extends Animal{
+	//overriding super class move()
+	public void move(){
+		System.out.println("\n\t Fish is swiming");
+	}
+}
+
+class Monkey extends Animal{
+	public void move(){
+		sop("\n\t Monkey is climbing");
+	}
+}
+
+
+class Trainer{
+
+	public void teach(Animal animal){
+		animal.move();
+	}
+
+}
+
+
+	1. Fish
+	2. Monkey
+	3. Dog
+	4. Snake
+
+	Enter choice : ?
+
+	Trainer t1 = new Trainer();
+	t1.teach(new Fish());
+
+
+
+
+
+
+
+
+
+
+Animal fish = new Fish();
+fish.move();
+
+
+
+
+
+
+
+
+
+Why Polymorphism
+-----------------------
+	- reusability
+	- provides the ability to define a behavior specific to the 				subclass
+	- with overriding, we are re-implementing / redefinining a 				behavior/method of superclass in subclass
+
+
+Overriding
+-------------------
+	- redefining the superclass method into subclass using the same 			signature
+
+Overriding Rules
+----------------------------
+	1. only inherited methods can be overridden
+		- private methods cannot be overriden
+		- public, protected, default methods are inheritable so 			can be overridden
+	
+	2. final and static methods cannot be overridden
+	
+	3. the overriding method must have same argument list as 				overridden method
+
+	4. the overriding method must have same return type
+		- or sub type
+
+	
+	class Base{
+		public String getData(){
+			..//
+		}
+
+		public Object getData(Object obj){
+
+		}
+	}
+
+	class Child extends Base{
+
+		public char[] getData(){
+			..//
+		}
+
+		public Child getData(Object obj){
+		
+		}
+	}
+
+	5. the overriding method must not have more restrictive access
+
+	6. the overriding method must not throw new or broder exceptions
+
+	7. constructor cannot be overridden
+
+	8. abstract methods must be overridden by immediate subclass
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

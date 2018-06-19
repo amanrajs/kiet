@@ -1,0 +1,241 @@
+Operations on List
+---------------------------
+
+1. Creating a new List
+
+    =>Non-Generic collections
+
+	ArrayList list = new ArrayList();
+	List list = new ArrayList();
+
+	LinkedList lnkList = new LinkedList()p
+	List list = new LinkedList();
+
+    =>Generic Collection
+
+	List<Integer> numsList = new ArrayList<>();
+	 
+	List<String> namesList = new LinkedList<>();
+		 
+	List<Employee> empList = new ArrayList<>();
+
+	List<Object> objList = new ArrayList<>();
+	
+	 
+
+2. Basic Operations on List
+
+	a. Adding elements 
+
+		boolean add(Object obj)
+		boolean add(index, object)
+		void addAll(Collection)
+
+	b. Retrieve elements from a list
+
+		Object get(int index)
+
+		E get(int index)
+
+	c. Updating an element 
+
+		Object set(int index, Object obj);
+
+	d. Removing elements from a list
+
+		boolean remove(int index)
+		boolean remove(Object obj)
+
+		**=> remove(object) compares the specifief object with all 			the elements of the list using equals()
+
+		**=> whenever we have list of custom objects, the equals() 			method must be correctly overridden
+
+		**=> the remove() removes only the first occurence
+
+3. Iterating over a list
+	
+	a. using classic for loop
+
+		for(int i=0; i<list.size(); i++){
+			
+			Object obj = list.get(i);			
+
+		} 
+
+	b. using enhanced for loop 
+
+		for(<T> loopVar : collection){
+
+		}
+
+		List<String> namesList = new ArrayList<>();
+		for(String name : namesList){
+
+		}
+		
+
+	c. using iterator
+		- Iterator is an object that allows to traverse a 			collection
+		
+		Iterator itr = list.iterator();
+
+		- the hasNext() method returns true if the collection has 				more elements to traverse
+
+		- the next() method return the current element 
+
+
+		Iterator itr = list.iterator();
+		while(itr.hasNext()){
+			Object obj = itr.next();
+		}
+
+		Iterator<T> itr = list.iterator();
+		while(itr.hasNext()){
+			<T> obj = itr.next();
+		}
+
+	d. Using lamda expression (java 8)
+
+		namesList.forEach( name -> System.out.println(name));
+
+
+4. Searching an element in a list
+-----------------------------------------------
+
+	boolean contains(object)
+		- returns true if the given object is found in the list
+
+	int indexOf(object)
+		- returns the index of the first occurence of the given 			object if found, otherwise return -1
+
+	int lastIndexOf(object)
+	
+
+		if(list.contains("hello")){
+
+		}
+
+		int index = list.indexOf("hello");
+
+	**=> the above methods compare te elements using their equals(), 		so if you define your own custom type, make sure the 		equals() is overridden correctly
+
+
+5. Sorting a list
+---------------------------
+	- java.util.Collections class provides sort() method to sort the 			list
+
+		Collections.sort(list);
+
+	- the sort() method sorts the elements of the list, according to 		thier natural ordering
+
+	- the sort() method uses compareTo() to compare each element with 			other elements
+
+
+	**=> if you have list of custom objects, the objects must be 		comparable, (compareTo() method must be correctly overridden to specify the natural ordering of the objects)
+
+
+6. Copying one list into another list
+
+	Collections.copy(destList, sourceList)
+
+7. Shuffleing elements in a list
+
+	Collections.shuffle(list)
+
+8. Reserving elements in a list
+
+	Collections.reverse(list)
+
+
+Sorting Collection
+----------------------
+
+	Collections.sort(list)
+		- sorts a list collection
+
+	Arrays.sort(array)
+		- sorts an array
+
+	**=> using these methods we can sort elements in collection/array
+	**=> the elements are sorted according to their natural ordering 
+
+	Ex. the natural ordering for STring object is 'alphabetic order'
+	    the natural ordering for Integer objects is alphanumeric order
+            the natural ordering for Date objects is 'chronological order'
+
+natural ordering
+--------------------------
+	- default ordering of objects of a specific type
+
+Comparable Interface
+-------------------------
+	- java.util package provides 'Comparable' interface
+	- using Comparable interface we can define the natural ordering of 		a class
+
+		interface Comparable<T>{
+
+			public abstract int compareTo(Object obj);
+
+		}
+
+	- the compareTo() returns int as a compare value
+
+		compare value = 0	: two objects are equal
+		compare value > 0	: the first object is greater than 						second
+		compare value < 0	: the first object is less than 						second
+
+	
+	class Employee implements Comparable{
+		int empid;
+		String ename;
+		double salary;
+
+		..constructor
+		..getter/setter
+
+		//override comparaTo()
+		public int compareTo(Object obj){
+			//implement logic to define natural ordering
+		}
+
+	}
+Comparator interface
+--------------------------
+	- it is used to create external comparators 
+
+	interface Comparator<T>{
+
+		public abstract int compare(Object obj1, Object obj2);
+
+	}
+
+	class EmpIdComparator implements Comparator{
+
+		public int compare(Object obj1, Object obj2){
+			Employee e1 = (Employee)obj1;
+			Employee e2 = (Employee)obj2;
+
+			if(e1.getEmpId() > e2.getEmpId())
+				return 1;
+			else if(e1.getEmpId() == e2.getEmpId())
+				return 0;
+			else 
+				return -1;
+		}
+	
+	}
+
+	Collections.sort(emplist, new EmpIDdComparator());
+
+
+
+
+
+
+
+
+
+
+
+
+

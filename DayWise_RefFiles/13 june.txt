@@ -1,0 +1,289 @@
+Multidimensional Arrays
+
+ - A multidimensional array is a series of arrays so that each array contains its 	own sub-array(s)
+
+a. declare two dim array variable
+
+	datatype[][]  arrname;
+	int[][] nums;
+
+b. create array
+	
+	arrname = new datatype[colsize][rowsize]
+	nums = new int[2][5];
+
+vipul
+  |--> family  :
+  |--> friends : 
+
+
+int[][] arr = new int[2][];
+
+
+	int[][] arr = new int[][] { {1,2,3}, {4,5,6}, {7,8,9}  }
+
+
+Regular Expressions
+--------------------------
+	- using regex we can perform validations
+	- java provides Regular Expression API to define a pattern for searching or 		manipulating strings
+		
+	- java.util.regex pacakge
+		-> Matcher Class
+		-> Pattern Class
+		-> PatternSyntaxException class
+		
+	
+Characters
+
+	[abc]	: allow 1 single character between a, b or c
+
+	[a-j]	: allow 1 single character from a to j
+
+	[A-Z]	: allow 1 single character between A to Z
+
+	[a-zA-Z] : allow 1 single character from a to z or A to Z
+
+	[^a-j]	: allow 1 single character except a to j
+
+	[a-zA-Z]
+
+	[0-9]	: allow any single digit between 0 to 9
+
+
+Quantifiers
+
+	{ n }	: the previous element occurs exact n times
+
+	{n, m} 	: the previous element occurs min n times and max m times 
+
+	{n,}	: the previous element occurs min n times
+
+	?	: the previous element occurs once or zero
+
+	+	: the previous element occurs once or more times
+
+	*	: the previous element occurs zero or more times
+
+Metacharacters
+
+	.	: any character 
+
+	\d	: any digit or   [0-9]	 
+
+	\w	: any word character or [a-zA-Z0-9_]
+
+	\W	: any non word character  or [^a-zA-Z0-9_]  or [^\w]
+			- allow space and symbols
+
+	\D	: any non digit character or [^0-9]	
+
+	\s	: any space character (\t\n\r)
+
+	\S	: any non space character
+
+Groups
+
+
+
+
+
+Mobile number validation
+----------------------------
+
+	^[7-9][0-9]{9}$		<--pattern / regex
+
+	^[7-9]\d{9}$	
+
+
+
+
+Pattern.matches(String regex, String str)
+	- Compiles the given regular expression and attempts to match the given 		string against it. returns true if str matches the given regex
+
+
+
+
+	 
+	^[a-zA-Z]{6,12}$
+
+	\w{6,12}
+
+
+
+	abcx?$
+
+	abcx
+	abc
+
+	[a-x]
+
+		08-06-2018
+		8-6-2018
+		08/06/2018
+		8/6/2018
+
+
+	
+Password Validation
+------------------------------
+
+
+	(?=.*[A-Z][A-Z])	
+	(?=.*[a-z])		
+	[a-zA-Z_\.]{6,12}
+
+PANCARD validation
+----------------------
+
+	BLZPS9988S
+
+	[a-zA-Z]{3}
+
+
+
+Classes and Objects
+----------------------------
+	- in java, everything, every single line of code must be encapsulated 				inside a single unit called as class
+	- Everything to be represented in java program, must be written inside a 			class
+	- a class is a blueprint of object
+	- a class is a user defined data type
+	- once we create a class, we can create any number of objects belonging to 			that class
+
+Object
+	-> any entity which has some state,behavior
+	-> instance of a class
+
+	class <classname>{
+		- instance variable
+		- static variables
+		
+		- contructor
+		- intance methods
+		- static methods
+		
+		- abstract methods
+		- inner classes
+	}
+
+
+
+
+
+
+=> Method Overloading
+-------------------------
+
+	- multiple methods with same name but different parameters in 		type or number
+
+	- the right method is called by comparing the function call and 		function definition
+
+	- Static binding
+
+	- when overloading a method, return type is not considered
+		- i.e. overloaded methods can have diff return type
+
+	- Overloaded methods may have different access modifiers
+
+	- Overloaded methods may throw different exceptions
+
+
+=> The Constructors
+--------------------------
+	- special methods of a class, which has same name as its class
+	- used to initialize data members/fields/instance variable
+
+	- can have multiple constructor
+
+	- ** a constructor can have call to either this() or super() but 		not both
+	- ** call to this() or super() must be the 1st statement
+		
+
+this keyword
+--------------------
+	- it refers to instance of current class
+
+this() constructor
+---------------------
+	- it is used to call the current class overloded constructor
+
+
+super keyword
+-----------------
+	- refers to instance of super class
+
+super() constructor
+----------------------
+	- it is used to call the super class contructor 
+
+
+TypeScript
+---------------------------------------------------------------
+
+	- npm commands 
+	- package.json
+	- tsconfig.json
+
+
+
+To setup a typescript project with development server
+---------------------------------------------------------
+
+1. Create a new Folder and open it in VS Code
+
+
+2. Create the package.json file
+	- lists all the depedencies of our project
+
+	> npm init
+
+3. npm commands
+
+	> npm install bootrap@3.3.7  --save
+
+	> npm install jquery@3.2    --save
+
+	> npm install		<--read package.json file	
+					and install all depedencies
+	
+4. download and setup a development server
+		 "http-server"
+
+	> npm install http-server --save
+
+
+5. define a custom script to start the server
+
+	{
+	   "scripts" : {
+		  "demo" : "./node_modules/.bin/http-server -c1 ."
+		}
+	}
+
+6. start the server
+
+	> npm run demo
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+		
+
+	
+
+
+
+
+
+
+
+

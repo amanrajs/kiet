@@ -1,0 +1,246 @@
+Abstract Class
+----------------------
+	- a class declared using 'abstract' keyword is called Abstract 				Class
+	- when a class is abstract, we cannot instantiate that class
+		- we cannot create object of abstract class
+
+	abstract class <classname>{
+		// instance variable
+		// static variables
+
+		//constructor
+		//instance methods
+		//static methods
+		//may contain abstract methods
+	}
+
+	- an abstract is used to just act a superclass, to hold some 		common properties/methods for the child classes
+
+Abstract Method
+----------------
+	- a method declared with 'abstract' keyword 
+	- it has no definition / method body
+	- if a class has atleast one abstract method, then that class 				must be marked as 'abstract'
+
+	public abstract double calcArea();
+
+	- if we inherit an abstract class containing abstract method to 		any concrete class, then that class must override the 		abstract method
+
+
+
+
+Interface
+--------------
+	- it is similar to a class
+	- it contains only 'public abstract' methods and 'public final 		static' variables
+	- interface is contract, which specifies set of requirements
+		a class has to implement
+
+	- using 'implements' keyword we can implement an interface to a 		class
+	
+	- a class can implement several interfaces at a time 
+
+	- the class which implements an interface, must override all the 		abstract methods
+
+	- an interface can extend several interfaces
+
+
+	interface Printable{
+		public abstract void print();
+	}
+
+	interface showable{
+		void show();
+	}
+
+	class Demo implements Printable, Showable{
+		public void print(){
+
+		}
+
+		public void show(){
+		
+		}
+	}
+
+
+
+	interface Singer{
+		void sing();
+		void warmUpVoice();
+	}
+
+	interface Dancer{
+		void dance();
+		void stretchLegs();
+	}
+
+	interface Talented extends Singer, Dancer{
+
+	}
+
+	class TalentedPerson implements Singer, Dancer{
+
+	}
+
+	class TalentedPerson implements Talented{
+
+	}
+
+	**-> an interface variable can reference the object of its 		implementation class
+
+	interface Student{
+
+	}
+
+	class Person implements Student{
+
+	}
+
+	Student amit = new Person();
+	Person sumit = new Person();
+
+	sumit.teach(amit);
+
+
+
+
+
+
+equals() method and == operator
+------------------------------------
+
+	- equals() is defined in Object class
+	- equals() is used to compare two objects semantically
+
+	- == operator is used to compare primitives, or used to compare 		two objects technically (by comparing their references)
+
+	int a = 10, b = 20;
+
+	if(a == b){
+
+	}
+
+	if(emp1 == emp2){
+
+	}
+
+
+	String s1 = new String("welcome")
+	String s2 = new String("welcome")
+
+
+	String s1 = "Welcome"
+	String s2 = "Welcome"
+
+	if(s1 == s2){
+
+	}
+
+
+
+	public boolean equals(Object obj) {
+		
+		if(obj instanceof Employee){
+			Employee another = (Employee)obj;
+			if(this.empId == another.empId &&
+				this.eName.equals(another.eName) &&
+				this.salary == another.salary){
+		   	return true;
+			}
+		}
+		return false;
+	}
+
+	emp1.equals(emp2);
+
+	emp1.equals("Hello");
+
+	emp1.equals(new Product(10, "sdf"));
+
+Type System in Typescript
+-----------------------------------
+
+	1. primitives tyeps and type inference
+
+		number
+		string
+		boolean 
+
+
+		let x = 10;
+		let x:number = 10;
+
+		let message = 'welcome'
+		let message:string = 'welcome'
+
+		let isActive:boolean = true;
+
+
+	2. object type and type inference
+
+		let p = {
+			fname : 'vishal',
+			lname : 'shah'
+		}
+
+
+		let p:{fname:string, lname:string} = {
+			fname : 'vishal',
+			lname : 'shah'
+		}
+
+	3. define a new object type 
+
+		a. using 'type' keyword
+
+			type PersonType = {fname:string, lname:string}
+
+			let p1:PersonType; 
+			let p2:PersonType;
+		
+			p1 = {
+			   fname : 'vishal',
+			   lname : 'shah'
+			}
+
+		b. using 'interface'
+
+			interface PersonType{
+			    fname:string;
+			    lname:string;
+			}
+
+			let p3:PersonType = {
+				fname : 'vishal',
+				lname : 'shah'
+			}
+
+			
+	4. creating functions in typescript
+
+		function arithAdd(a, b){
+			return a+b
+		}
+
+		function arithAdd(a:number, b:number):number{
+			return a+b
+		}
+
+		arithAdd(10,20)
+		arithAdd("ten", "twelve");	//compile error
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
