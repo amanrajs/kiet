@@ -1,0 +1,316 @@
+  Iterable<T> (i) <--- iterator()
+		|
+	   Collection<T> (i)				Map<K,V> (i)
+		|					  |
+    -------------------------------------		  |
+    |		       |		|		HashMap<K,V>
+  List<T>	      Set<T> 	     Queue<T>		LinkedHashMap<K,V>
+   (i)	       	       (i) 	        (i)		TreeMap<K,V>
+    |			|		|
+    |			|		|
+ArrayList<T> 	    HashSet<T>		|
+LinkedList<T> 	    LinkedHashSet<T>	|
+Vector<T> 	    TreeSet<T>		|
+Stack<T> 			 ----------------------
+				 |		    |	
+				Deque (i)	BlockingQueue (i)
+			  	  |
+				BlockingDeque (i)
+
+
+What is Set?
+
+	- Set is a type of Collection that does not allow duplicate 		elements 
+
+		
+			Collection
+			    |
+			   Set	
+			    |
+			    |---------------------->SortedSet
+			AbstractSet (abstract)		|
+			    |			    NavigableSet
+			    |				|
+		-------------------------------------------------
+		|		|			|
+	     HashSet	    LinkedHashSet	     TreeSet
+
+Set Implementation classes
+---------------------------------
+
+1. HashSet
+	-> uses 'HashTable' data structure
+	-> doesn't maintain order of insertion
+	-> initial capacity is 16
+
+2. LinkedHashSet
+	-> uses 'HashTable + doubly linked list" data structure
+	-> maintains order of insertion
+	-> initial capacity is 16
+
+3. TreeSet
+	-> uses 'Balanced Tree"
+	-> maintains sorted order according to the natural 					ordering of objects
+	-> initial capacity N/A
+
+Operations of Set 
+-------------------------
+
+1. Creating a new Set
+
+    =>non-generic collections
+
+	HashSet set1 = new HashSet();
+	Set set1 = new HashSet();
+
+	LinkedHashSet set1 = new LinkedHashSet();
+	Set set1 = new LinkedHashSet();
+
+	TreeSet set1 = new TreeSet();
+
+   => generic collection
+
+	Set<Integer> numsSet = new HashSet<>();	
+
+	Set<String> numsSet = new LinkedHashSet<>();	
+
+	Set<Employee> numsSet = new TreeSet<>();	
+
+2. Basic Operations on Set
+--------------------------------------
+	a. adding elements 
+		
+		boolean add(object)
+		void addAll(Collection)
+
+	b. removing elements 
+
+		boolean remove(object)
+
+	c. remove all elements 
+
+		void clear()
+
+3. Iterating over a set 
+-------------------------------------
+	
+	a. enhanced for loop 
+		for(int num : numsSet) {
+			System.out.println(num);
+		}
+	b. iterator
+		Iterator<Integer> itr = numsSet.iterator();
+		while(itr.hasNext()) {
+			int num = itr.next();
+			System.out.println(num);
+		}
+	c. lamda expressions
+
+		numsSet.forEach(num -> System.out.println(num));
+
+4. Searching for an element in a set
+
+	boolean contains(object)	
+		- returns true if the set contains the given object
+
+	boolean containsAll(object)
+
+	Set<Integer> s1 = new HashSet<>(Arrays.asList(12,43,65,23,5));
+	Set<Integer> s2  = new HashSet<>(Arrays.asList(12,43,5));
+
+		s1.containsAll(s2)
+
+		- returns true if s2 is a subset of s1
+
+
+5. intersection operation
+
+	Set<Integer> s1 = new HashSet<>(Arrays.asList(1,2,3,4,5,7,9));
+	Set<Integer> s2  = new HashSet<>(Arrays.asList(2,4,6,8));
+
+	
+	s1.retainAll(s2)
+		- will transform s1 into intersection of s1 and s2
+
+6. Set difference operation
+
+	Set<Integer> s1 = new HashSet<>(Arrays.asList(1,2,3,4,5,7,9));
+	Set<Integer> s2  = new HashSet<>(Arrays.asList(2,4,5, 34));
+
+	s1.removeAll(s2)	
+
+
+Summary of List Collection
+
+		ArrayList	LinkedList	Vector		Stack
+ordered		ordered		ordered		ordered		ordered
+		by index	by index	by index	by index
+
+null and 
+duplicates	yes		yes		yes		yes
+
+synchronized	no		no		yes		yes
+
+initial		10		n/a		10		10
+capacity
+
+data 
+structure	'Resizable	Doubly		'Resizable	'Resizable
+		Array'		LinkedList	 Array		Array
+
+
+
+Summary of Set collection
+-----------------------------------
+
+		HashSet		LinkedHashSet		TreeSet
+Ordered		unordered	ordered by		sorted order 
+				insertion
+
+null
+values		no		no			no
+
+duplicate	no		no			no
+
+synchronized	no		no			no
+
+data		HashTable	HashTable+ 		Balanced Tree
+structure			Doubly LInked List
+
+
+initial
+capacity	16		16			n/a
+
+
+Understanding hashCode() method
+--------------------------------------
+
+	Object class 
+	----------------------
+		boolean equals(Object obj)
+		int hashCode()
+
+
+-> the hashCode() method returns a hash number
+-> the hash number is used by only hash-table based collections i.e. 	HashSet, HashMap, LinkedHashMap etc.
+->in hashtable based collections
+	- get hash code value of the specified element
+	- find the right bucket associated with that hash code
+	- inside the bucket, find the correct element by comparating the 		specified element with all the elements in the bucket
+
+
+Rules about equals() and hashCode() methods
+------------------------------------------------
+	1. when the equals() method is overridden, the hashCode() must be 		overridden
+	2. if two objects are equal, their hash codes must be equal as 		well
+	3. if two objects are not equal, there is no constraint on their 		hash codes
+	4. if two objects have identical hashcode, there is no constraint 			on their equality
+
+	5. if two objects have different hashcode, they must be equal
+
+SortedSet 
+-------------------------
+
+	Set set = new TreeSet();
+		-> perform only basic operations 
+
+	SortedSet set = new TreeSet()
+		-> perform basic operations + 
+			- range view operations
+			- end point operations
+			- access to comparator 
+
+Range View operation methods
+-----------------------------------
+	SortedSet subSet(E from, E to)
+	SortedSet headSet(E to)
+	SortedSet tailSet(E from)
+
+End point operations
+---------------------------
+	E first()	- returns the first (lowest) element 
+	E last()	- return the last (largest) element 
+
+
+-Angular Framework is shipped in the form of libraries
+	@angular/core
+	@angular/http
+	@angular/forms
+	@angular/animations
+	@angular/platform-browser
+	ngrx
+	zonejs
+	
+
+Angular Project Directory Structure
+------------------------------------------
+
+d:\first-app
+	|
+	|->e2e
+	|   |->store end to end test cases
+	|   |-> or automation tests
+	|
+	|->node_modules
+	|   |-> stores all the 3rd party libraries
+	|   |-> it is purely used for development
+	|
+	|->src
+	|   |
+	|   |-> app
+	|   |	 |->app.module.ts
+	|   |    |->app.component.ts
+	|   |	 |->app.component.html
+	|   |
+	|   |->assets
+	|   |    |-> store all the images/files
+	|   |
+	|   |->environments
+	|   |	|->environment.ts
+	|   |   |->environment.prod.ts
+	|   |   |-->configuration file for diff. environments 
+	|   |
+	|   |
+	|   |->index.html
+	|   |	|->the 1st file which is served when the application start
+	|   |  
+	|   |->main.ts
+	|   |	|->starting point of your angular app
+	|   |
+	|   |->polyfills.ts
+	|   |
+	|   |
+	|   |->styles.css
+	|   |	|-> global css file, to define style rules
+	|   |
+	|   |->test.ts
+	|   |	|->configuration file for testing
+	|   |
+	|   |->tslint.json
+	|   |	|->configuration file for effective coding
+	|   |
+	|   |-> 
+	|   
+	|->angular.json    or    angular-cli.json
+	|  	-> configuration for cli  
+	|  
+	|->package.json
+	|
+	|->tsconfig.json
+	|	|->configuration file for typescript compiler
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+

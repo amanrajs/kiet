@@ -227,6 +227,62 @@ Comparator interface
 
 	Collections.sort(emplist, new EmpIDdComparator());
 
+	language		libray		Framework
+	javascript		jquery		Angular	
+						ReactJS
+						VueJS
+						EmberJS
+
+
+Angular Framework
+-------------------------------
+	- it is a framework used to create client side web applications
+	- gives clean, consize, maintainable coding standards
+	- allows reusable components
+	- more testable
+	- efficient in performance
+	- more secure
+
+History of Angular
+----------------------
+	 Google		     Google + Microsoft		
+	   |			 |
+	AngularJS or 	 	 |
+	Angular 1.x	      Angular 2			Angular 4	
+	   |			 |			  |
+	  2010			2016		   	Nov 2017
+	   |			 |
+	javascript	      typescript
+		
+
+Install Angular CLI
+----------------------
+	- Angular Command line interface is a tool to create, build, test, 		manage angular application
+
+	
+	1. Install Node
+
+	2. Install NPM 
+
+	3. install angular cli
+
+		> npm install -g @angular/cli
+
+		> ng -v
+
+Create a new Angular Project
+------------------------------------
+
+	>ng new first-app
+
+
+
+
+
+
+
+
+
 
 
 
