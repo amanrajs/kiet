@@ -1,0 +1,184 @@
+  	Iterable<T> (i) <--- iterator()
+		|
+	   Collection<T> (i)				Map<K,V> (i)
+		|					  |
+    -------------------------------------		  |
+    |		       |		|		HashMap<K,V>
+  List<T>	      Set<T> 	     Queue<T>		LinkedHashMap<K,V>
+   (i)	       	       (i) 	        (i)		TreeMap<K,V>
+    |			|		|
+    |			|		|
+ArrayList<T> 	    HashSet<T>		|
+LinkedList<T> 	    LinkedHashSet<T>	|
+Vector<T> 	    TreeSet<T>		|
+Stack<T> 			 ----------------------
+				 |		    |	
+				Deque (i)	BlockingQueue (i)
+			  	  |
+				BlockingDeque (i)
+
+
+What is Map?
+---------------
+	- Map<K,V> is an interface in Collection Framework
+	- a map a collection of key-value pairs 
+		i.e. 	name-address
+			name-phone
+			isbn-title
+			roll-name
+			word-count
+			roll-Student
+			Trainer-List<Student>
+			Trainer-Set<Student>
+
+	- key can be of any type, value also can be of any type
+	- no duplicate keys are allowed
+	- duplicate values are allowed
+
+
+	- the Map<k,V> takes two generic types, 
+
+Implementations of Map interface
+--------------------------------------
+
+		Map<K,V>
+		   |
+		   |
+		   |
+	      AbstractMap<K,V>   (abstract class)
+		   |
+	----------------------------------------------------------
+	|		|			|		|
+     HashMap	     LinkedHashMap	     TreeMap		HashTable
+
+
+1. HashMap<K,V>
+	-> uses "HashTable" data structure
+	-> doesn;t maintain the order of insertion of keys
+	
+
+2. LinkedHashMap<K,V>
+	-> uses HashTable + doubly linked list data structure
+	-> maintains order of insertion by keys
+
+3. TreeMap<K,V>
+	-> uses "RedBlack tree" data structure
+	-> maintains sorted order of keys according to thier natural 				ordering
+		
+4. HashTable
+	-> similar to HashMap
+	-> synchronized
+
+
+	Map map1 = new HashMap();
+	Map<Object, Object> map1 = new HashMap<>();
+
+
+
+Map interface methods
+---------------------------
+
+	1. V put(K key, V value)
+		-> associate the specified value with the specified key
+		-> used to add the mapping on the map collection
+
+	2. V get(K key)
+		-> returns the value of specified key
+
+	3. boolean containsKey(Object key)
+		-> searches for the given key in map returns true if found
+
+	4. boolean containsValue(Object value)
+		-> searches for the given value
+
+	5. Set<K> keySet()
+		-> returns a set a view of keys
+
+	6. Collection<V> values()
+		-> returns a collection view of values
+
+	7. Set entrySet();
+		-> returns a set view of key-value pairs
+
+Operations on Map
+------------------------
+
+	1. Creating a new Map
+
+	   ==> non-generic maps
+
+		Map map1 = new HashMap();
+		HashMap map1 = new HashMap();
+
+		Map map2 = new LinkedHashMap()
+		Map map3 = new TreeMap();
+
+
+	  ==> generic maps
+		
+		Map<Integer, String> map1 = new HashMap<>();
+
+		
+	2. Add a mapping to a map
+
+		V put(K,V) 
+
+	3. retrieve a value from a map
+
+		V get(K key)
+
+
+	4. Searching for a key
+
+		boolean containsKey(K key)
+
+		
+	5. searching for a value
+
+		boolean containsValue(V Value)
+
+	
+	6. Iterating over a map
+
+	   a. Set keySet()
+		- returns a Set view of the keys contained in the map
+
+		Set<Integer> keyset = mapHttpErrors.keySet();
+		for(Integer key : keyset) {
+			String value = mapHttpErrors.get(key);
+			System.out.println("key = " + key + "\tvalue = " + value);
+		}
+
+		for(Integer key : mapHttpErrors.keySet()){
+
+		}
+
+	b. Collection<V> values()
+		
+		Collection<String> col = mapHttpErrors.values();
+		
+		for(String str : col) {
+			System.out.println(str);
+		}
+
+	c. Set entrySet()
+
+		- returns a Set view of mappings contained in the map
+
+
+		Set<Map.Entry<Integer, String>> entries = mapHttpErrors.entrySet();
+
+		Set<Map.Entry<Integer, String>> entries = mapHttpErrors.entrySet();
+		for(Map.Entry<Integer, String> entry : entries) {
+			int key = entry.getKey();
+			String value = entry.getValue();
+			System.out.println("key = " + key + "\tvalue = " + value);
+		}
+
+
+
+
+
+
+
+

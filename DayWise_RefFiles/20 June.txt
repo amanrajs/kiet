@@ -1,4 +1,4 @@
-  Iterable<T> (i) <--- iterator()
+  	Iterable<T> (i) <--- iterator()
 		|
 	   Collection<T> (i)				Map<K,V> (i)
 		|					  |
@@ -49,7 +49,7 @@ Set Implementation classes
 	-> initial capacity is 16
 
 3. TreeSet
-	-> uses 'Balanced Tree"
+	-> uses 'Balanced Tree" data structure
 	-> maintains sorted order according to the natural 					ordering of objects
 	-> initial capacity N/A
 
@@ -201,9 +201,9 @@ Understanding hashCode() method
 
 Rules about equals() and hashCode() methods
 ------------------------------------------------
-	1. when the equals() method is overridden, the hashCode() must be 		overridden
-	2. if two objects are equal, their hash codes must be equal as 		well
-	3. if two objects are not equal, there is no constraint on their 		hash codes
+	1. when the equals() method is overridden, the hashCode() must be 			overridden
+	2. if two objects are equal, their hash codes must be equal as 				well
+	3. if two objects are not equal, there is no constraint on their 			hash codes
 	4. if two objects have identical hashcode, there is no constraint 			on their equality
 
 	5. if two objects have different hashcode, they must be equal
@@ -230,6 +230,59 @@ End point operations
 ---------------------------
 	E first()	- returns the first (lowest) element 
 	E last()	- return the last (largest) element 
+
+NavigableSet
+-----------------
+
+	E lower(E)
+		-> returns the gretest element which is less than the 			specified element
+
+	E floor(E)
+		-> returns the gretest element which is less than or equal 			to the given element
+
+
+	E ceiling(E)
+		-> returns the least element which is greater than or 			equal to the given element
+
+	E higher(E)	
+		->  returns the least element which is greater than 					 to the given element
+
+	Set descendingSet()
+		-> returns a reverse order view of the elements of the set
+
+	Iterator descendingIterator()
+		-> returns an Iterator object that allows traversing 			elements of a set in descending order
+
+	
+		
+
+*=> show the employee whose salary is higher than employee sugam
+
+
+*=> show the employee whose salary is less than employee sugam
+
+
+*=> show the employee whose salary is greater than or equal to 5000
+
+
+*=> show the employee whose salary is less than or equal to 5000
+
+
+*=> show the employee who is low paid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 -Angular Framework is shipped in the form of libraries
