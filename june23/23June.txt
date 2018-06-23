@@ -6,18 +6,13 @@
 
 	->main.js
 
-	
 	->vendor.js
 
-	
 	->polyfills.js
-
 
 	->styles.js
 
-
 	->inline.js
-
 
 
 Module
@@ -105,6 +100,30 @@ Create a new Component
 		>ng generate component courses
 
 		>ng g c courses
+
+
+Data Binding
+---------------------
+	-> Communication between component and template
+	-> communication between typescript code/your business logic and 			template what the uses sees
+
+
+	1. String interpolation
+		- used to output some dynamic content in template 
+		- use string interpolation to output dynamic content into 			heading, paragraphs, lists, tables etc.
+
+		- {{ tsfield }}
+
+
+	2. Property Binding
+		- to dynamically change the DOM properties 
+		- to bind a tsfield with a DOM property
+
+		<element [DomProperty]="tsfield"> </element>
+
+
+
+
 
 
 
