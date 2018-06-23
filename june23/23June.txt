@@ -1,0 +1,135 @@
+
+"Webpack"
+	-> it is a build tool / automation tools used by CLI
+	-> it collects all of our code, scripts, html, css and combines 		them into different javascript bundles
+	-> it minifies, uglyfies, and optimize all the scripts, html, css 		into .js bundles
+
+	->main.js
+
+	
+	->vendor.js
+
+	
+	->polyfills.js
+
+
+	->styles.js
+
+
+	->inline.js
+
+
+
+Module
+--------------
+	-> module is a container which groups related components
+	-> every angular app has atleast one root module i.e. AppModule
+
+
+Component
+-----------------
+	-> component is a typescript class, which manages/controls a 		template
+
+	-> every angular app has one root component
+		i.e. AppComponent
+
+
+
+			AppComponent
+			 |
+	----------------------------------------------
+	|		|			|
+   HeaderComponent    NavbarComponent	    CoursesComponent
+						|
+					    CourseComponent
+						|
+					    RatingComponent
+
+
+
+Create a new Component
+-------------------------------
+
+	1. create component manually
+	
+		a. create a new typescript class "HeaderComponent"
+
+			header.component.ts
+			-------------------------
+
+			export class HeaderComponent{
+
+			}
+
+		b. add metadata to this class to inform angular that this 			is a component
+
+			import {Component} from '@angular/core';
+
+			@Component({
+			   selector : 'app-header',
+			   templateUrl : './header.component.html'
+			})
+			export class HeaderComponent{
+
+			}
+
+		c. create a template file
+			header.component.html
+			----------------------
+
+			<div>
+			  <h1>This is Header section</h1>
+			</div>
+
+
+
+		d. use the <app-header></app-header> in AppComponent 						template
+
+
+
+		e. register this new component in AppModule
+
+			app.module.ts
+			@NgModule({
+				declarations: [
+					HeaderComponent
+				],
+				imports : [],
+				providers: [],
+				bootstrap : []
+			})
+			
+
+	2. create component using cli
+
+		>ng generate component courses
+
+		>ng g c courses
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,66 @@
+1. download and install NodeJS
+
+2. install npm - (node package manager)
+	-> npm is installed automatially along with node
+
+
+Angular Cli
+---------------
+
+	> npm install -g @angular/cli
+
+	> ng -v 
+
+How to angular project
+-------------------------
+
+	> ng new my-app
+
+
+Angular Building Blocks
+----------------------------------
+
+1. Module
+	|-> a module is a container
+	|-> groups related components 
+	|-> every angular app has a root module, i.e. AppModule
+
+	app.module.ts
+
+
+2. Component 
+	-> a component is a typescript class which manages template
+	-> every angular app has atleast one component, i.e. AppComponent
+	-> it encapsulates data, html and logic 
+
+		app.component.ts
+
+3. Template
+	-> a template is a "View"
+	-> using html markup a template is created 
+
+		app.component.html
+
+4. Libraries
+
+5. Metadata
+
+6. directives
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
