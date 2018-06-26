@@ -1,0 +1,405 @@
+Exception Handling
+------------------------
+	- an exception is an unwanted/unexpected/abnormal event that 		arises during the execution of the program and 
+		disrupts the normal flow of the program
+
+
+	1. Compile Time Errors
+		-> syntax errors
+		-> missing semicolons
+		-> use of undeclared variables
+		-> misspelling of indenfieres
+	   -> until we fix these errors, the .class file will not be 			generated
+
+	2. Run Time Errors / Exceptions 
+		-> these errors occures at run time
+		-> ex. 	-dividing an integer by zero
+			- wrong input
+			- failure in physical resources
+			-accessing an element that is out of the bounds of 				array
+			- a file that needs to be opened cannot be found
+			- a network connection has been lost in the middle 				of communcation
+			- trying to store incompatible value
+			etc.
+
+Exception Handling
+-----------------------
+	-> java has a built-in mechanism for handling runtime errors - 
+
+	if(file exisits){
+		open file
+		while(there are more records to proceed){
+			if(no IO Error)
+				read the file
+			else
+			    report the errors
+		}
+	}else{
+	    report the file does not exists
+	}
+Why Exception handling
+--------------------------
+	- to provide a system to detect and report an "Exceptional 		Situation" so that appropriate actions can be taken
+
+
+How to Handle Exceptions
+----------------------------------
+
+	1. Find the Problem (hit the exception) 
+	2. Inform that an error has occured (Throw the exception)
+	3. Receive the error information (catch the exception thrown)
+	4. Take corrective actions (Handle the exception)
+
+
+Defualt Exception Handler
+-----------------------------------
+	- will terminate the program if any unexpected/unwanted event 			occurs and it will show the stack of the exception
+
+
+using try..catch block
+------------------------------
+
+	try{
+		..code to be monitored
+		..
+		..
+		...
+		...
+	}
+	catch(ExceptionType obj){
+
+	}
+	-> if any statement in the try block, generates exception, the 		remaining statements in the block are skipped and 		execution jums to the catch block
+	-> the catch block 'catches' the exception thrown by the try block
+	-> 
+
+
+Exception class hierarchy
+----------------------------------
+
+
+			       Throwable
+				   |
+	-----------------------------------------------------
+	|						    |
+      Expcetion						  Error
+	|						    |
+  ----------------------------------------		    |->LinkageError
+  |  		        |		|		    |->AWTError	
+RunTimeException       IOException   SQLExeception  ...	    |->VirtualMachineError
+  |							    |-> ...
+  |-> ArithmeticException
+  |-> NullPointerException
+  |-> ArrayIndexOutofBoundsException
+  |-> IllegalArgumentException
+  |-> NumberFormatException
+  |->...
+
+"Error" class
+----------------------
+	- Error class describes internal system errors 
+	- if such errors occurs, your program will be terminated
+
+Exception class
+-----------------
+	-> describes the errors caused by your program
+	-> these exceptions might be caught and handled by your program
+
+	-> in Java, exceptions are objects
+	-> you can't throw any object as exception, but only those objects
+		who are descendent of Exception class 
+
+Checked Exception and Unchecked Exception
+----------------------------------------------
+
+Checked Exception
+-----------------------------
+	- Checked Exception is an error or problem that 
+			cannot be foreseen by the programmer
+	-> these exceptions cannot be simply ignored at the compile time
+	-> these exceptions are explicitely handled in code itself
+		by try-catch block
+
+
+Unchecked Exception
+--------------------------
+	-> thse exceptions are not essentially handled by the program
+	-> jvm handles such exceptions
+	-> all RunTimeException classes are unchecked exceptions
+
+=>Printing Exception
+-------------------------
+
+	1. System.out.println(ex)
+		- print the string representation of Exception object
+	
+	2. System.out.println(ex.getMessage());
+		- prints excepion message, indicating the cause of exception
+
+	3. ex.printStackTrace()
+
+
+Common Exception Classes
+----------------------------
+1. NumberFormatException
+	- it is an unchecked exception, thrown by parseXXX() methods, 
+		when they are unable to format (convert) a string
+		into a number
+
+2. ArrayIndexOutOfBoundsException
+	-> Thrwon by JVM when your code uses an array index,
+		which is outside the array's bounds
+
+3. NullPointerException
+	-> Thrown by JVM when your code attempts to use a null reference
+		where an object reference is required 
+
+		String[] strs = new String[3];
+		strs[0].length();	//NullPointerException
+
+		Employee[] emp = new Employee[3];
+
+		emp[0].show()
+
+4. ClassCastException
+	- Thrown by JVM when the code attempt to cast an object
+		reference fails
+
+		Object obj = new Object();
+
+		Integer i = (Integer)obj;
+
+
+5. IllegalArgumentException
+
+	-> Thrown programmatically to indicate that a method
+		has been passed an illegal or inappropriate argument
+
+6. IllegalStateException
+	
+	-> Thrown programmatically when a method is invoked and 
+		the program is not in an appropriate state for the
+		method to perform its task
+
+Three ways to handle Exceptions
+-------------------------------------
+
+	1. using try-catch block;
+	2. using 'throws' keyword
+	3. to throw the exception object to the system
+		using 'throw' keyword
+
+
+'throws' Keyword
+-----------------------
+	-> bypass the compilation error triggered by checked exception
+	-> using 'throws' keyword you can declare that the exception 
+		is to be handled by jvm
+	
+
+'throw' keyword
+-------------------
+
+
+Create Custom Exception
+-----------------------
+
+	public class InvalidAgeException extends Exception{
+
+		public InvalidAgeException(String msg){
+			super(msg);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+1. download and install NodeJS
+
+2. install npm - (node package manager)
+	-> npm is installed automatially along with node
+
+
+Angular Cli
+---------------
+
+	> npm install -g @angular/cli
+
+	> ng -v 
+
+How to angular project
+-------------------------
+
+	> ng new my-app
+
+
+Angular Building Blocks
+----------------------------------
+
+1. Module
+	|-> a module is a container
+	|-> groups related components 
+	|-> every angular app has a root module, i.e. AppModule
+
+	app.module.ts
+
+
+2. Component 
+	-> a component is a typescript class which manages template
+	-> every angular app has atleast one component, i.e. AppComponent
+	-> it encapsulates data, html and logic 
+
+		app.component.ts
+
+3. Template
+	-> a template is a "View"
+	-> using html markup a template is created 
+
+		app.component.html
+
+4. Libraries
+
+5. Metadata
+
+6. directives
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1. download and install NodeJS
+
+2. install npm - (node package manager)
+	-> npm is installed automatially along with node
+
+
+Angular Cli
+---------------
+
+	> npm install -g @angular/cli
+
+	> ng -v 
+
+How to angular project
+-------------------------
+
+	> ng new my-app
+
+
+Angular Building Blocks
+----------------------------------
+
+1. Module
+	|-> a module is a container
+	|-> groups related components 
+	|-> every angular app has a root module, i.e. AppModule
+
+	app.module.ts
+
+
+2. Component 
+	-> a component is a typescript class which manages template
+	-> every angular app has atleast one component, i.e. AppComponent
+	-> it encapsulates data, html and logic 
+
+		app.component.ts
+
+3. Template
+	-> a template is a "View"
+	-> using html markup a template is created 
+
+		app.component.html
+
+4. Libraries
+
+5. Metadata
+
+6. directives
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 

@@ -1,0 +1,307 @@
+Input & Output (I/O)
+--------------------------------
+
+	- java uses the concept of "Streams" to perform input/output 		operations form various input sources and output 		destination
+
+	- Streams are carrier of data
+	- "Stream" is a sequence of bytes
+	- "Stream" supports many different kinds of data, including bytes, 		primitives data,localized characters, objects etc.
+
+I/O Stream Classes
+-----------------------
+	- in java, we have Stream classes (object oriented) provided with 		java.io package
+
+	1. Byte Stream classes
+		- provides support for handling I/O operations on bytes
+
+			InputStream		OutputStream
+
+	2. Character Stream Classes
+		- provides support for handling I/O operations on 					characters
+
+			Reader			Writer
+
+
+System.in
+----------------------------
+	-> "in" is an object of "InputStream", which is defined inside 		System class
+	-> "in" object represents the Stream of standard input device 		(i.e. keyboard)
+
+
+Keyboard Input using byte based stream classes
+----------------------------------------------------
+
+	InputStream
+		|-> DataInputStream
+
+	
+	DataInputStream dis = new DataInputStream(System.in);
+
+	-> the readLine() of DataInputStream read a line at a time and 				returns a string
+
+Keyboard input using Character based stream classes
+----------------------------------------------------------
+
+	Reader
+	  |-> InputStreamReader
+
+
+	InputStreamReader reader = new InputStreamReader(System.in);
+	BufferedReader br = new BufferedReader(reader);
+
+
+	BufferedReader br = new BufferedReader(new InputStreamReader							(System.in))
+
+
+	**-> InputStreamReader is just a wrapper around InputStream, which 		wraps the InputStream (System.in) and converts the byte 				based data into character based data
+
+
+Keyboard input using scanner class
+----------------------------------------
+	.nextInt()
+	.nextDouble()
+	.nextXXX();
+
+	-> Scanner class provides convenient methods for parsing 		primitives
+	-> Regular Expressions can be used to find tokens
+
+	-> the reading methods are not synchronized
+
+
+Keyboard input using Console Class
+------------------------------------
+	-> the console class is used to get input from the console.		
+	-> it provides methods to read text and password
+	-> used to perform password input, without echoing the 				entered characters
+
+		String readLine()
+		char[] readPassword()
+
+
+		Console c = System.console();
+		
+File Class
+-----------------------------------
+	-> the java.io.File class is used to represent a File or Directory
+
+		File f = new File("d:/demoio/abc.txt");
+		File f = new Fiel("d:/demoio");
+
+	-> Methods of File class
+
+		boolean exists()
+			-> tests if the file/directory exists
+
+		long length()
+			-> returns the length of this file in bytes
+
+		boolean isDirectory()
+			-> tests is this instance is a directory
+
+		boolean isFile()
+			-> tests if this instance is file
+
+		boolean delete()
+			-> deletes the file/directory
+
+		boolean createNewFile()
+			-> creates a new file
+
+		boolean mkdir()
+			-> creates a new directory 
+
+		boolean deleteOnExit()
+			-> deletes file/directory when the program 				terminates
+
+		boolean renameTo(File f)
+			-> renames the file
+
+		String[] list()
+			-> lists the contents of this directory 
+			-> returns a string array containing names of 				files/directories
+
+
+		File[] listFiles();
+			-> returns a File-Array
+
+Character Based I/O classes
+------------------------------------
+
+	Reader				Writer
+	  |				  |
+	  |->InputStreamReader		  |->OutputStreamWriter
+	  |	|->FileReader		  |	|->FileWriter
+	  |				  |
+	  |->BufferedReader		  |->BufferedWriter
+	  |			 	  |
+	  |->FilterReader		  |->FilterWriter
+	  |			  	  |		
+	  |->PipeReader			  |->PipeWriter
+	  |				  |
+	  |->StringReader		  |->StringWriter
+
+
+
+==>Reader
+    |-> it is the supermost abstract class the defines character stream 			input
+
+		int read()
+		int read(char[] buffer)
+		int read(char[] buffer, int off, int len)
+
+==>Writer
+    |-> it is the supermost abstract class that defines character stream 		otput
+
+		void write(int)
+		void write(String)
+		void write(char[])
+		
+
+==> InputStreamReader and OutputStreamWriter
+-------------------------------------------------
+
+	-> Read a file using InputStreamReader
+
+		-> InputStreamReader is used to read text file, character 			by character
+		
+		InputStreamReader isr = new InputStreamReader();
+
+
+		-> the read() method reads a single character and returns 			an int value as an ascii code of that character
+
+		-> when it reaches to the EOF it returns -1
+
+
+	-> Write a file using OutputStreamWriter 
+
+		-> we can write character by character to any output 			stream
+
+	 FileOutputStream fos = new FileOutputStream("d:/demo/xyz.txt");
+		or
+
+	 File f= new File("d:/demo/xyz.txt")
+	 FileOutputStream fos = new FileOutputStream(f);
+	 
+	 OutputStreamWriter writer = new OutputStreamWriter(fos);
+
+	 writer.write(string)
+
+
+==>FileReader and FileWriter
+-------------------------------------------
+
+	FileReader reader = new FileReader(f);
+	FileWriter writer = new FileWriter(f);
+
+	*=> FileReader/FileWriter uses default encoding of the operating			system
+
+	*=> to read/write a file with specific encoding, use 		InputStreamReader/OuputStreamWriter 
+
+	
+		"UTF-8"
+		"UTF-16"
+		"US-ASCII"
+		"UTF-168E"
+
+
+==>BufferedReader and BufferedWriter
+------------------------------------------
+
+FileReader reader = new FileReader(f)
+BufferedReader br = new BufferedReader(reader);
+
+	OR
+
+FileInputStream fis  = new FileInputStream(f);
+InputStreamReader reader  = new InputStreamReader(fis", "ENCODING");
+BufferedReader br = new BufferedReader(reader);
+
+
+
+FileWriter writer = new FileWriter(f);
+BufferedWriter bw = new BufferedWriter(writer);
+
+bw.write("welcome");
+bw.close();
+
+
+FileOutputStream fos = new FileOutputStream(f);
+OutputStreamWriter writer = new OuputStreamWriter(fos);
+BufferedWriter bw = new BufferedWriter(writer);
+
+
+Byte Based I/O classes
+------------------------------------
+
+	InputStream			     OutputStream
+	  |				     |				
+	  |->FileInputStream		     |->FileOutputStream
+	  |				     |
+	  |->FilterInputStream		     |->FilterOuputStream
+	  |	|->BufferedInputStream	     |  |->BufferedOutputStream
+	  |	|->DataInputStream	     |  |->DataOutputStream
+	  |				     |
+	  |->PipedInputStream		     |->PipedOutputStream
+	  |				     |
+	  |->OuputInputStream		     |->ObjectOutputStream
+
+
+=> FileInputStream	 & FileOutputStream
+---------------------------------------------------------
+
+	int read()
+	int read(byte[] bytes, int offset, int length)
+
+
+	void write(int)
+	void write(byte[] bytes)
+
+Angular Framework
+--------------------------
+
+*=> Add bootstrap library to angular application
+
+
+	-> Bootstrap is a library which inluces ready-to use CSS classes, 		Customizable components, plugins etc.
+
+	-> bootstrap is a combination of html5+css3+jquery
+
+	-> bootstrap is used to create 'Responsive Web applications'
+
+
+
+	1. download the bootstrap library in angular project
+
+		>npm install bootstrap@3.3.7 --save
+
+	2. open the global styles.css and import bootstrap.css
+
+		@import "~bootstrap/dist/css/bootstrap.css";
+
+
+Data Binding
+---------------------
+
+	1. String interpolation
+
+	2. Property Binding 
+
+	3. Event Binding
+
+		(domEvent)="tsMethod()"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
